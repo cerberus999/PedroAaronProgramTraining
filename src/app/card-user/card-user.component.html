@@ -1,0 +1,29 @@
+<div  class="d-flex width-100" style="margin: 2%">
+  <div class="row">
+    <div class="col-3 " *ngFor="let user of users">
+      <div class="card" style="margin: 5px 0; max-width: 400px; min-width: 190px;">  
+        <div class="row" style="margin: 5px;">
+          <ng-container *ngIf="user">
+            <div class="col">
+              <img src="{{user.avatar_url}}" class="card-img-top" style="min-width: 130px; max-width: 150px;">
+            </div>
+            <div class="col">
+              <span>
+                <p class="card-title"><strong>{{user.login}}</strong></p>
+              </span>
+            </div>
+              <div class="card-body">
+                <a href="{{user.html_url}}" target="_blank" class="card-text">{{user.html_url}}</a> 
+                <br>
+                <button (click)="navigateRepos(user.login)" target="_blank">Ver repositorios</button>
+              </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="nav justify-content-end" style="margin: 15px 5%;">
+  <button (click)="nextPage()">Proxima pagina</button>
+</div>
